@@ -236,7 +236,7 @@ This README documents the current implementation, including unfinished API areas
 - The `/subscriptions/upcoming` route is declared after `/:id`, so requests may be handled by the parameterized route instead of the intended upcoming-renewals handler.
 - Renewal dates use approximate month and year durations when subscriptions are saved.
 - Subscription expiration status is not continuously recalculated.
-- Database connection failures are logged by the current startup flow but do not automatically terminate the server.
+- Database connection failures now prevent the API from starting, which avoids accepting requests while Mongoose is disconnected.
 
 ## Production Checklist
 

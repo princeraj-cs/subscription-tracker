@@ -1,20 +1,18 @@
 import mongoose from "mongoose";
 
-import { DB_URI, NODE_ENV } from "../config/env.js"
-
+import { DB_URI, NODE_ENV } from "../config/env.js";
 
 if (!DB_URI) {
-    throw new Error("Please define the MONGODB_URI envoirnment variable inside .env<development/production>.local")
+  throw new Error(
+    "Please define the MONGODB_URI envoirnment variable inside .env<development/production>.local",
+  );
 }
 
-const connectToDatabase = async() => {
-    try {
-        await mongoose.connect(DB_URI);
-        console.log(`Connected to database in ${NODE_ENV} mode`);
-    } catch (error) {
-        console.error("Error connecting to database:", error.message || error);
-        console.warn("⚠️ Tip: If using MongoDB Atlas, make sure your current IP address is whitelisted in MongoDB Atlas Network Access.");
-    }
-}
+const connectToDatabase = async () => {
+  await mongoose.connect(DB_URI, {
+    serverSelectionTimeoutMS: 10000,
+  });
+  console.log(`Connected to database in ${NODE_ENV} mode`);
+};
 
 export default connectToDatabase;
