@@ -1,4 +1,4 @@
-const API_BASE = "";
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 // Helper to make authenticated requests
 async function request(endpoint, options = {}) {
@@ -17,7 +17,10 @@ async function request(endpoint, options = {}) {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    const errorMsg = data.message || data.error || `Request failed with status ${response.status}`;
+    const errorMsg =
+      data.message ||
+      data.error ||
+      `Request failed with status ${response.status}`;
     throw new Error(errorMsg);
   }
 
