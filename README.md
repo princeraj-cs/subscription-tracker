@@ -98,16 +98,6 @@ The important values are:
 | `ARCJET_ENV`     | Arcjet environment setting exposed to the configuration.                                          |
 | `ARCJET_KEY`     | Arcjet project key.                                                                               |
 
-Do not commit environment files or real credentials.
-
-For a production frontend build, create `frontend/.env.production.local` with the deployed API URL:
-
-```env
-VITE_API_URL=https://subscription-tracker-backend-3xc9.onrender.com
-```
-
-The frontend falls back to relative `/api` requests when `VITE_API_URL` is not set, which allows the local Vite proxy to continue handling development requests.
-
 ## Running Locally
 
 Start the backend in one terminal:
