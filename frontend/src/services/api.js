@@ -62,4 +62,12 @@ export const api = {
       method: "DELETE",
     });
   },
+
+  // Chatbot
+  async askChatbot(message) {
+    return request("/api/v1/chatbot/chat", {
+      method: "POST",
+      body: JSON.stringify({ message }),
+    });
+  },
 };

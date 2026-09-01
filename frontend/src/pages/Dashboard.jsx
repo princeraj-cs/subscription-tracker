@@ -4,6 +4,7 @@ import { api } from "../services/api";
 import Navbar from "../components/Navbar";
 import ServiceLogo from "../components/ServiceLogo";
 import AddSubscriptionModal from "../components/AddSubscriptionModal";
+import ChatbotWidget from "../components/ChatbotWidget";
 import { CATEGORIES, POPULAR_SERVICES } from "../constants/services";
 import { 
   Plus, 
@@ -371,6 +372,8 @@ export default function Dashboard() {
         onClose={() => setIsAddModalOpen(false)}
         onSubscriptionAdded={handleSubscriptionAdded}
       />
+
+      <ChatbotWidget />
     </div>
   );
 }
